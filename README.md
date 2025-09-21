@@ -52,4 +52,6 @@ Un espacio pensado para fomentar la creatividad gastronómica y la interacción 
 
 ## 📸 Capturas de pantalla
 
-
+![Página principal](/Screenshots/paginaprincipal.png, Screenshots/paginaprincipal2.png)  
+![Detalle de receta](/Screenshots/receta.png)
+![Buscador](/Screenshots/buscador.png)
