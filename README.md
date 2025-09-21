@@ -52,6 +52,17 @@ Un espacio pensado para fomentar la creatividad gastronómica y la interacción 
 
 ## 📸 Capturas de pantalla
 
-![Página principal](/Screenshots/paginaprincipal.png, Screenshots/paginaprincipal2.png)  
+![Página principal](/Screenshots/paginaprincipal.png)  
+![Página principal](/Screenshots/paginaprincipal2.png) 
+![Categorias](/Screenshots/categorias.png)
+![Recetas por categorias](/Screenshots/recetascategorias.png)
 ![Detalle de receta](/Screenshots/receta.png)
+![Pagina Usuariota](/Screenshots/paginausuarios.png)
+![Alergenos](/Screenshots/alergenos.png)
 ![Buscador](/Screenshots/buscador.png)
+![Inicio Sesion](/Screenshots/iniciosesion.png)
+![Registro](/Screenshots/registro.png)
+![Pagina usuario inicio](/Screenshots/paginausuario.png)
+![Lista foritos](/Screenshots/listafovoritos.png)
+![Recetas favoritos](/Screenshots/recetasfavoritos.png)
+![Add publicación](/Screenshots/addpublicacion.png)
