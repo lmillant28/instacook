@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Tus estilos -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/cabecera.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <script type="text/javascript" src="/jquery/admin.js"></script>
+    <style>
+        .migas ol li {
+            list-style: none;
+        }
+
+        .migas {
+           margin-top: 30px;
+           margin-left: 20px;
+        }
+        main{
+           margin:auto;
+           width: 90%;
+           min-height: 69vh;
+           margin-bottom:30px;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+
+        .sidebar {
+            border: 2px solid #000;
+            width: 340px;
+            height: 420px;
+            margin-right: 55px;
+            background: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            padding: 6px 16px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .sidebar .selected {
+            background: #a6c8fa;
+        }
+
+        .main-content {
+            border: 2px solid #000;
+            width: 600px;
+            min-height: 400px;
+            background: #fff;
+            position: relative;
+
+        }
+
+        .formularios {
+            margin: 45px 40px;
+            display: none;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .formularios h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .formularios label {
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .formularios input[type="text"] {
+            width: 380px;
+            height: 32px;
+            border: 2px solid #000;
+            border-radius: 2px;
+            font-size: 18px;
+            padding: 3px 12px;
+            margin-left: 18px;
+            margin-top: 3px;
+        }
+
+        .formularios button {
+            width: 110px;
+            height: 36px;
+            align-self: flex-end;
+            background: #d3775b;
+            color: #fff;
+            border: 2px solid #000;
+            border-radius: 3px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .formularios button:hover {
+            background: #bd5839;
+        }
+
+        .receta {
+            background: #f7f7f7;
+            margin-bottom: 12px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display:flex;
+            flex-direction:row;
+        }
+
+        .card-img{
+            width:50%;
+
+        }
+        .texto{
+            margin: auto;
+            width: 44%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 300px) and (max-width: 800px)  {
+            .container {
+                display: flex;
+                align-items: center;
+                margin-top: 30px;
+                gap: 25px;
+                flex-direction: column;
+                margin-bottom:20px;
+            }
+            .sidebar{
+                width: 80vw;
+                height: 310px;
+                margin-right:0px;
+            }
+
+            .main-content{
+                width: 80vw;
+            }
+            .formularios input[type="text"] {
+                width: 150px;
+                height: 32px;
+                margin-top: 3px;
+            }
+
+            .formularios {
+                margin: 10px;
+                display: none;
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Cabecera -->
+<header th:replace="Cabecera :: cabecera"></header>
+
+<main>
+    <div class="migas" aria-label="Breadcrumb" role="navigation">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/" aria-current="page">Página Principal</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Admin</li>
+            </ol>
+        </nav>
+    </div>
+    <div th:if="${mensaje}">
+        <p th:text="${mensaje}" class="alert alert-success" role="status" aria-live="polite"></p>
+    </div>
+    <div class="container">
+        <nav class="sidebar" aria-label="Menú de administración">
+            <ul>
+                <li id="ingredientes" tabindex="0" role="button" aria-label="Ir a Añadir Ingrediente">Añadir Ingrediente</li>
+                <li id="categorias" tabindex="0" role="button" aria-label="Ir a Añadir Categoría">Añadir Categoría</li>
+                <li id="avisos" tabindex="0" role="button" aria-label="Ir a Avisos uso inadecuado">Avisos uso inadecuado</li>
+                <li id="gestion" tabindex="0" role="button" aria-label="Ir a Gestión de usuarios">Gestión de usuarios</li>
+                <li id="informe" tabindex="0" role="button" aria-label="Ir a Informe de las recetas mejor valoradas">Informe de las recetas mejor valoradas</li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <form class="formularios" id="ingredientes-form" th:action="@{/admin/addIngrediente}" method="post" aria-labelledby="titulo-ingrediente">
+                <h2 id="titulo-ingrediente">Añadir Ingrediente</h2>
+                <label for="ingrediente">Ingrediente:</label>
+                <input type="text" id="ingrediente" name="ingrediente" autocomplete="off" aria-required="true">
+                <label for="alergenos">Alérgenos:</label>
+                <select id="alergenos" name="alergenos" multiple aria-label="Selecciona los alérgenos">
+                    <th:block th:each="alergeno : ${alergenos}">
+                        <option th:value="${alergeno.idAlergeno}" th:text="${alergeno.nombre}"></option>
+                    </th:block>
+                </select>
+                <button type="submit">Añadir</button>
+            </form>
+            <form class="formularios" id="categorias-form" th:action="@{/admin/addCategoria}" method="post" aria-labelledby="titulo-categoria">
+                <h2 id="titulo-categoria">Añadir Categoría</h2>
+                <label for="categoria">Categoría:</label>
+                <input type="text" id="categoria" name="categoria" autocomplete="off" aria-required="true">
+                <button type="submit">Añadir</button>
+            </form>
+            <form class="formularios" id="avisos-form" th:action="@{/admin/enviarAviso}" method="post" aria-labelledby="titulo-aviso">
+                <h2 id="titulo-aviso">Aviso a los usuarios</h2>
+                <label for="usuario">Usuario:</label>
+                <select id="usuario" name="usuario" aria-required="true">
+                    <th:block th:each="usuario : ${usuarios}">
+                        <option th:value="${usuario.nombreUsu}" th:text="${usuario.nombreUsu}"></option>
+                    </th:block>
+                </select>
+                <label for="comentario">Comentario:</label>
+                <textarea id="comentario" name="comentario" aria-required="true"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <form class="formularios" id="gestion-form" th:action="@{/admin/eliminaUsu}" method="post" aria-labelledby="titulo-gestion">
+                <h2 id="titulo-gestion">Eliminar a un usuario</h2>
+                <label for="usu">Usuario:</label>
+                <select id="usu" name="usu" aria-required="true">
+                    <th:block th:each="usuario : ${usuarios}">
+                        <option th:value="${usuario.nombreUsu}" th:text="${usuario.nombreUsu}"></option>
+                    </th:block>
+                </select>
+                <button type="submit">Eliminar</button>
+            </form>
+
+            <section id="informe-form" class="formularios" aria-labelledby="titulo-informe">
+                <h2 id="titulo-informe">Informe de 10 mejores receta</h2>
+                <th:block th:each="rec:${recetas}">
+                    <article class="receta" tabindex="0" aria-label="Receta de [[${rec.nombre}]] por [[${rec.nombreUsu}]]">
+                        <img class="card-img" th:src="@{/imagenes/{img}(img=${rec.imagen})}" th:alt="${rec.nombre + ' imagen de la receta'}" />
+                        <div class="texto">
+                            <strong th:text="${rec.nombre}"></strong>
+                            <span th:text="${rec.nombreUsu}"></span>
+                            <span th:text="'Valoración media: ' + ${rec.media}"></span>
+                        </div>
+                    </article>
+                </th:block>
+            </section>
+        </div>
+    </div>
+</main>
+
+
+<!-- Footer -->
+<footer th:replace="Footer :: footer"></footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

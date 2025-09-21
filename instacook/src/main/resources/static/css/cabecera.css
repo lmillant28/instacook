@@ -1,0 +1,110 @@
+.sub-header {
+    background-color: #b1bddf;
+    padding: 10px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #a47864;
+    margin-left: 30px;
+}
+
+
+.logo img {
+    width: 80px;
+}
+
+.logo small {
+    font-size: 0.8rem;
+    display: block;
+    color: #a47864;
+    margin-left: -20px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.icon-btn {
+    font-size: 1.5rem;
+    color: transparent;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+
+.icon-btn a {
+    width: 40px;
+    height: 40px;
+
+}
+
+.btn img:hover {
+    box-shadow: 0px 4px 10px #5c3b24;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+
+.icon-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-btn img:hover {
+    box-shadow: 0px 4px 10px #5c3b24;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+
+.offcanvas-custom {
+    background-color: #b1bddf;
+    color: #8b5e3c;
+}
+
+.offcanvas-custom .list-group-item {
+    background: transparent;
+    border: none;
+    color: #8b5e3c;
+    font-size: 1.1rem;
+}
+
+.offcanvas-custom img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: flex-start;
+    color: #8b5e3c;
+    font-size: 1.1rem;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.menu-item span{
+    color:#8b5e3c;
+}
+
+.menu-item img {
+    width: 30px;
+    height: 30px;
+}
+
+display: block !important;
+    position: absolute !important;
+    top: 40px !important;
+    left: 0 !important;
+    z-index: 99999 !important;
+    opacity: 1 !important;
+    background: #fff !important;
+    border: 1px solid #ccc;
+    min-width: 200px;
+    pointer-events: all;
+}
+
+
+

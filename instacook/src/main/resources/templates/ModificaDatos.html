@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mmodificar Datos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.3.0/flickity.min.css" />
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="/css/cabecera.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/formulario.css" />
+</head>
+
+<body>
+
+<!-- Cabecera -->
+<header th:replace="Cabecera :: cabecera"></header>
+
+<main>
+    <div class="migas" aria-label="Breadcrumb" role="navigation">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Página Principal</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="/InicioSesion">Perfil</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Modificar datos</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="registro" id="opcionR" aria-labelledby="titulo-modificar-datos">
+        <h1 id="titulo-modificar-datos">Modificar datos</h1>
+        <div id="error" style="color: red; margin-bottom: 10px;" role="alert" aria-live="assertive"></div>
+        <form id="form-registro" method="post" enctype="multipart/form-data" action="/formulario/modificar" aria-label="Formulario para modificar datos del perfil">
+            <div class="grupo">
+                <label for="nombre">Tu nombre:</label>
+                <input class="input" type="text" id="nombre" name="nombre" th:value="${usuario.nombre}" required aria-label="Nombre">
+            </div>
+            <div class="grupo">
+                <label for="email">Correo electrónico:</label>
+                <input class="input" type="email" id="email" name="email" th:value="${usuario.correo}" required autocomplete="email" aria-label="Correo electrónico">
+            </div>
+            <div class="cuadroImg">
+                <i class="bi bi-card-image" aria-hidden="true"></i>
+                <label for="archivo" class="visually-hidden">Foto de perfil</label>
+                <input type="file" name="archivo" id="archivo" aria-label="Subir nueva foto de perfil">
+            </div>
+            <input class="btn-login" type="submit" value="Modificar" aria-label="Guardar cambios">
+        </form>
+    </div>
+</main>
+
+
+<!-- Footer -->
+<footer th:replace="Footer :: footer"></footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+     $("#form-registro").validate({
+         rules: {
+             nombre: { required: true },
+             email: {
+                 required: true,
+                 email: true,
+                 remote: {
+                     url: "/formulario/verificar-email",
+                     type: "POST",
+                     data: {
+                         correo: function () {
+                             return $("#email").val();
+                         }
+                     }
+                 }
+             },
+             archivo: {
+                 required: true,
+                 extension: "jpg|jpeg|png|gif"
+             }
+         },
+         messages: {
+             usuario: { remote: "Este nombre de usuario ya existe." },
+             email: { remote: "Este correo ya está registrado." }
+         },
+         errorPlacement: function(error, element) {
+            // Busca si ya existe un <ul> dentro de #error para listar los errores
+            let $errorList = $("#error ul");
+            if ($errorList.length === 0) {
+                // Si no existe, crea un <ul> vacío dentro de #error
+                $("#error").html("<ul></ul>");
+                $errorList = $("#error ul");
+            }
+            // Elimina el mensaje de error previo de este campo, si ya existía (así no se duplican)
+            $errorList.find("li[data-error='" + element.attr("name") + "']").remove();
+            // Crea un <li> nuevo para el error de este campo
+                .attr("data-error", element.attr("name")) // Le añado data-error para identificar el campo al corregirlo
+                .html(error.text())                     // Pongo el mensaje de error como texto
+                .appendTo($errorList);                  //Lo añado al ul
+         },
+         highlight: function (element) {
+             $(element).addClass("is-invalid");
+         },
+         unhighlight: function (element) {
+             $(element).removeClass("is-invalid");
+            // Quita el error de este campo del <ul>
+            let $errorList = $("#error ul");
+            $errorList.find("li[data-error='" + $(element).attr("name") + "']").remove();
+            // Si no hay más errores, limpia #error
+            if ($errorList.children().length === 0) {
+                $("#error").html("");
+            }
+         },
+         invalidHandler: function(event, validator) {
+          console.log(" Formulario con errores:");
+            console.log(validator.errorList);
+             $("#error").html(""); // Limpia antes de mostrar nuevos errores
+         },
+         submitHandler: function (form) {
+             console.log("Enviando formulario...");
+             const formData = new FormData(form);
+
+             $.ajax({
+                 url: "/formulario/modificar",
+                 type: "POST",
+                 data: formData,
+                 contentType: false,
+                 processData: false,
+                 success: function () {
+                     window.location.href = "/Perfil?mensaje=Datos%20modificados";
+                 },
+                 error: function (xhr) {
+                     $("#error").html("Error al registrar: " + xhr.responseText);
+                 }
+             });
+         }
+     });
+ });
+</script>
+
+</body>
+</html>

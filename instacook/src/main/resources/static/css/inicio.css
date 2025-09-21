@@ -1,0 +1,221 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+
+a span:first-child {
+    margin-left: 10px;
+}
+
+
+img {
+    width: 300px;
+}
+
+main {
+    margin-top: 80px;
+}
+
+
+a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    color:#8b5e3c;
+}
+
+.usu{
+   margin-right: -160px;
+   margin-top: -20px;
+   margin-bottom:0px !important;
+}
+
+
+/*------------------------------------------*/
+#carouselExampleInterval{
+       margin-bottom: 60px;
+}
+
+@keyframes automatizacion {
+    0% {
+        margin-left: 0;
+    }
+
+    30% {
+        margin-left: 0;
+    }
+
+    35% {
+        margin-left: -100%;
+    }
+
+    65% {
+        margin-left: -100%;
+    }
+
+    70% {
+        margin-left: -200%;
+    }
+
+    95% {
+        margin-left: -200%;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+/*------------------------------------------*/
+.contenedor {
+    width: 90%;
+    border: 1px solid gainsboro;
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor a:first-child {
+    align-self: flex-start;
+}
+
+.contenedor>a:first-of-type {
+    font-size: 2em;
+}
+
+
+
+.carrusel {
+        width: 100%;
+        margin: auto;
+}
+
+.rece {
+    width: 250px;
+    flex: none;
+    margin: 0 10px;
+}
+
+.carrusel .card {
+    margin: 0 10px;
+}
+
+.card{
+    border:none;
+}
+
+.card.rece {
+  width: 220px;
+  flex: none;
+  margin: 0 10px;
+}
+
+.rece a img{
+    width:182px;
+    height: 250px;
+}
+.rece button{
+    border:none;
+    background-color: transparent;
+}
+
+.rece a {
+    color: black;
+    text-align: center;
+}
+
+.rece a:hover {
+    color: #a47864;
+}
+
+.rece p {
+    margin-top: 0;
+    text-align: center;
+}
+
+.contenedor a p{
+    color:black;
+}
+
+.contenedor a p:hover{
+    text-shadow: 2px 2px 5px #a47864;;
+}
+
+.rece a img {
+    width: 100%;
+}
+
+.rece .material-symbols-outlined {
+    font-size: 20px;
+}
+
+
+
+
+/*MediaQuery Movil*/
+@media screen and (max-width:480px) and (min-width:250px)  {
+
+
+    #carouselExampleInterval {
+        margin-top: 55px;
+        margin-bottom: 50px;
+    }
+    .w-100 {
+        width: 89vw !important;
+        height: 30vh !important;
+    }
+
+
+
+    header .input-group{
+        flex-wrap: nowrap;
+    }
+
+
+
+    #enlaces a:hover{
+        color:orange;
+    }
+
+
+}
+
+/*MediaQuery Tablet*/
+@media screen and (max-width:980px) and (min-width:480px) {
+    #carouselExampleInterval {
+        margin-top: 22px;
+    }
+
+    .w-100{
+        height: 45vh !important;
+    }
+
+}
+/*MedIA eSCRITORIO*/
+@media screen and (min-width:981px)  {
+    .w-100 {
+        width: 50vw !important;
+        height: 58vh !important;
+    }
+
+}
+
+
+
+.bloque {
+    width: 100%;
+    height: 5px;
+    background-color: orange;
+    border: 1px solid black;
+}
+
+
