@@ -1,0 +1,122 @@
+
+        .migas {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .migas ol li {
+            list-style: none;
+             font-size: medium;
+        }
+
+        .migas ol li a{
+            font-size: medium;
+        }
+        .migas {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .migas ol li {
+            list-style: none;
+             font-size: medium;
+        }
+
+        .migas ol li a{
+            font-size: medium;
+        }
+
+
+        i {
+            color: #BF5A75;
+            cursor: pointer;
+        }
+
+        .imagA{
+            width: 30px;
+        }
+
+        #media{
+                width: 200px;
+                height: 50px;
+        }
+        .res{
+            float:right;
+            width: 130px;
+            height: 30px;
+        }
+
+        section a{
+            text-decoration:none;
+        }
+
+        #receta-imprimible {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 40px;
+          align-items: flex-start;
+          justify-content: center;
+        }
+
+        .receta-img-bloque {
+          width: 320px;
+          min-width: 240px;
+          max-width: 350px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .receta-img-bloque img {
+          width: 100%;
+          max-width: 320px;
+          height: auto;
+          border-radius: 16px;
+          object-fit: cover;
+        }
+
+        .receta-usuario {
+          font-size: 1.3rem;
+          text-align: center;
+          margin-top: 12px;
+          margin-bottom: 0;
+        }
+
+        .receta-datos-main {
+          flex: 1 1 400px;
+          min-width: 320px;
+        }
+
+        .receta-extra {
+          min-width: 180px;
+          max-width: 220px;
+          margin-left: 15px;
+          text-align: right;
+        }
+
+        @media (max-width: 1000px) {
+          #receta-imprimible {
+            flex-wrap: wrap;
+            gap: 24px;
+          }
+        }
+
+        @media (max-width: 770px) {
+          #receta-imprimible {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 18px;
+          }
+          .receta-img-bloque, .receta-datos-main, .receta-extra {
+            max-width: 100%;
+            min-width: 0;
+            text-align: left;
+            margin-left: 0;
+          }
+          .receta-extra{
+            justify-content: end;
+          }
+          .receta-img-bloque {
+            width: 100%;
+          }
+        }

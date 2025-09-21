@@ -1,0 +1,124 @@
+.migas {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.migas ol li {
+     list-style: none;
+     color:black;
+}
+
+
+.registro {
+  background: #fff;
+  padding: 40px;
+  margin:auto;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+#opcionR{
+    margin-bottom:40px;
+}
+
+.registro h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #5c3b24;
+}
+
+.grupo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grupo label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #5c3b24;
+}
+
+.input {
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #a47864;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e17d5a;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #8c6652;
+}
+
+.registro-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.registro-link a {
+  color: #a47864;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.registro-link a:hover {
+  text-decoration: underline;
+}
+
+i{
+    color: #8c6652;
+    font-size: xx-large;
+}
+
+.cuadroImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon img {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+.input-icon .input {
+  padding-left: 40px;
+}
+
+
+

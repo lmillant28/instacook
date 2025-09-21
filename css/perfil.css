@@ -1,0 +1,176 @@
+ #total {
+   max-width: 1200px;
+   margin: auto;
+   padding: 0 20px;
+   margin-bottom: 50px;
+ }
+
+ .migas {
+   margin-top: 30px;
+   margin-left: 20px;
+ }
+ main {
+   margin: auto;
+   width: 90%;
+   min-height: 69vh;
+ }
+ .migas ol li {
+   list-style: none;
+   color: black !important;
+ }
+
+ .ima img {
+    width: -webkit-fill-available;
+    height: 20vh;
+ }
+ #carta a{
+    text-decoration:none;
+    color:#a47864;
+ }
+ #carta a:hover{
+     color:#e17d5a;
+  }
+ .media{
+   width: 100px;
+   height: 25px;
+  }
+  .text-center{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .add-card {
+    border: 2px dashed #d699a1;
+    color: #b15d7d;
+    font-size: 40px;
+    background: #fff;
+    align-items: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .add-card:hover {
+    background: #fae0ea;
+    border-color: #b15d7d;
+  }
+ /* -------- PERFIL HEADER --------- */
+ .perfil {
+   display: flex;
+   align-items: flex-start;
+   gap: 28px;
+   margin-bottom: 30px;
+ }
+ .perfil-img {
+   width: 130px;
+   height: 130px;
+   border: 2px solid #222;
+   border-radius: 8px;
+   object-fit: cover;
+   background: #fafafa;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .perfil-img img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+ }
+ .perfil-datos {
+   flex-grow: 1;
+ }
+ .perfil-datos h2 {
+   margin: 0 0 10px 0;
+   font-size: 22px;
+   font-weight: 600;
+   display: inline-block;
+   vertical-align: middle;
+ }
+ .perfil-datos strong {
+   font-weight: 600;
+   font-size: 17px;
+ }
+ .perfil-datos .info {
+   margin-bottom: 5px;
+   font-size: 15px;
+ }
+ .perfil-datos .acciones {
+   margin-bottom: 12px;
+ }
+ .btn2 {
+   background: #e17d5a;
+   color: #fff;
+   border: none;
+   border-radius: 5px;
+   padding: 5px 15px;
+   font-weight: bold;
+   margin-right: 8px;
+   margin-top: 5px;
+   cursor: pointer;
+   transition: background .2s;
+   box-shadow: 1px 2px 0 #2224;
+   text-decoration: none;
+ }
+ .btn2:hover {
+   background: #a47864;
+ }
+ .perfil-corazon {
+   margin-left: auto;
+   color: #b15d7d;
+   font-size: 38px;
+   cursor: pointer;
+   transition: color 0.2s;
+ }
+ .perfil-corazon:hover {
+   color: #ee7ba6;
+ }
+ .bi {
+   color: black;
+ }
+ .bi:hover {
+   color: #b15d7d;
+ }
+ .badge a:hover {
+   color: #b15d7d;
+ }
+
+ .card.h-100,
+ .add-card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ .add-card {
+   border: 2px dashed #d699a1;
+   color: #b15d7d;
+   font-size: 40px;
+   background: #fff;
+   align-items: center;
+   transition: background 0.2s, border-color 0.2s;
+ }
+
+ .add-card:hover {
+   background: #fae0ea;
+   border-color: #b15d7d;
+ }
+
+ .add-icon {
+   font-size: 3.5rem;
+   color: #b15d7d;
+   text-decoration: none;
+ }
+
+
+
+ @media (max-width: 900px) {
+   .perfil {
+     flex-direction: column;
+     align-items: center;
+   }
+   .perfil-datos {
+     align-items: center;
+   }
+   .acciones {
+     display: flex;
+   }
+  }
