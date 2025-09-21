@@ -64,5 +64,5 @@ Un espacio pensado para fomentar la creatividad gastronómica y la interacción 
 ![Registro](/Screenshots/registro.png)
 ![Pagina usuario inicio](/Screenshots/paginausuario.png)
 ![Lista foritos](/Screenshots/listafovoritos.png)
-![Recetas favoritos](/Screenshots/recetasfavoritos.png)
+![Recetas favoritos](/Screenshots/recetasfavorito.png)
 ![Add publicación](/Screenshots/addpublicacion.png)
